@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('timing_tags', function (Blueprint $table) {
             $table->id();
+            $table->string('timing_name');
+            //ユニーク制約で重複登録されないようにする
+            $table->unique('timing_name');
+            $table->time('base_time');
             $table->timestamps();
         });
     }
