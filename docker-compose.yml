@@ -57,10 +57,16 @@ services:
             - "5050:80"
         depends_on:
             - pgsql
+        networks:
+            - sail
+        volumes:
+            - pgadmin-data:/var/lib/pgadmin
 
 networks:
     sail:
         driver: bridge
 volumes:
     sail-pgsql:
+        driver: local
+    pgadmin-data:
         driver: local
